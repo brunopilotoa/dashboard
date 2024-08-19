@@ -36,7 +36,7 @@ export default function Sidebar() {
 		<Grid
 			sx={{
 				backgroundColor: '#1c1c1c	',
-				width: '250px',
+				width: '230px',
 				height: '100vh',
 			}}
 		>
@@ -44,19 +44,25 @@ export default function Sidebar() {
 				sx={{
 					margin: 0,
 					padding: 0,
-
 				}}
 				component="nav"
 				aria-labelledby="nested-list-subheader"
 			>
-				<ListItemButton>
-					<HomeIcon sx={{ color: '#fff', marginRight: 1, marginLeft: 2 }} />
-					<Link href="/" sx={{ textDecoration: 'none', color: 'white' }}>
+				<ListItemButton sx={{ marginTop: 4 }}>
+					<HomeIcon
+						sx={{ color: '#fff', marginRight: 1, marginLeft: 2 }}
+					/>
+					<Link
+						href="/"
+						sx={{ textDecoration: 'none', color: 'white' }}
+					>
 						<ListItemText primary="Pagina Inicial" />
 					</Link>
 				</ListItemButton>
-				<ListItemButton onClick={handleClick}>
-					<ComputerIcon sx={{ color: '#fff', marginRight: 1, marginLeft: 2 ,  }} />
+				<ListItemButton onClick={handleClick} sx={{ marginTop: 1 }}>
+					<ComputerIcon
+						sx={{ color: '#fff', marginRight: 1, marginLeft: 2 }}
+					/>
 					<ListItemText primary="Cadastros" sx={{ color: '#fff' }} />
 					{open ? <ExpandLess /> : <ExpandMore />}
 				</ListItemButton>
@@ -64,7 +70,9 @@ export default function Sidebar() {
 					<List component="div" disablePadding>
 						<ListItemButton>
 							<ListItemIcon></ListItemIcon>
-							<LocalGasStationIcon sx={{ color: '#fff', marginRight: 1 }} />
+							<LocalGasStationIcon
+								sx={{ color: '#fff', marginRight: 1 }}
+							/>
 							<Link
 								href="/fuel"
 								sx={{ textDecoration: 'none', color: 'white' }}
@@ -78,59 +86,20 @@ export default function Sidebar() {
 					<List component="div" disablePadding>
 						<ListItemButton>
 							<ListItemIcon></ListItemIcon>
-							<AirplanemodeActiveIcon sx={{ color: '#fff', marginRight: 1 }} />
-							<Link href="/folhadepista " underline="none" color={'Menu'}>
+							<AirplanemodeActiveIcon
+								sx={{ color: '#fff', marginRight: 1 }}
+							/>
+							<Link
+								href="/folhadepista "
+								underline="none"
+								color={'Menu'}
+							>
 								<ListItemText primary="Folha de Pista " />
 							</Link>
 						</ListItemButton>
 					</List>
 				</Collapse>
-				{/*<ListItemButton onClick={handleClickSecondCategory}>*/}
-				{/*	<AirplanemodeActiveIcon*/}
-				{/*		sx={{ color: '#fff', marginRight: 1, marginLeft: 4 }}*/}
-				{/*	/>*/}
-				{/*	<ListItemText primary="Aeronaves" sx={{ color: '#21acd7' }} />*/}
-				{/*	{openSecondCategory ? <ExpandLess /> : <ExpandMore />}*/}
-				{/*</ListItemButton>*/}
-				{/*<Collapse in={openSecondCategory} timeout="auto" unmountOnExit>*/}
-				{/*	<List component="div" disablePadding>*/}
-				{/*		<ListItemButton sx={{ pl: 4 }}>*/}
-				{/*			<ListItemIcon></ListItemIcon>*/}
-				{/*			<Link href="/aircraftComponents">*/}
-				{/*				<ListItemText primary="Mapa de Componentes" />*/}
-				{/*			</Link>*/}
-				{/*		</ListItemButton>*/}
-				{/*	</List>*/}
-				{/*</Collapse>*/}
-				{/*<Collapse in={openSecondCategory} timeout="auto" unmountOnExit>*/}
-				{/*	<List component="div" disablePadding>*/}
-				{/*		<ListItemButton sx={{ pl: 4 }}>*/}
-				{/*			<ListItemIcon></ListItemIcon>*/}
-				{/*			<ListItemText primary="Validades Items Obrigatorios" />*/}
-				{/*		</ListItemButton>*/}
-				{/*	</List>*/}
-				{/*</Collapse>*/}
-				{/*<Collapse in={openSecondCategory} timeout="auto" unmountOnExit>*/}
-				{/*	<List component="div" disablePadding>*/}
-				{/*		<ListItemButton sx={{ pl: 4 }}>*/}
-				{/*			<ListItemIcon></ListItemIcon>*/}
-				{/*			<ListItemText primary="Revisoes" />*/}
-				{/*		</ListItemButton>*/}
-				{/*	</List>*/}
-				{/*</Collapse>*/}
-				{/*<Collapse in={openSecondCategory} timeout="auto" unmountOnExit>*/}
-				{/*	<List component="div" disablePadding>*/}
-				{/*		<ListItemButton sx={{ pl: 4 }}>*/}
-				{/*			<ListItemIcon></ListItemIcon>*/}
-				{/*			<ListItemText primary="Horas Voadas " />*/}
-				{/*		</ListItemButton>*/}
-				{/*		<ListItemButton sx={{ pl: 4 }}>*/}
-				{/*			<ListItemIcon></ListItemIcon>*/}
-				{/*			<ListItemText primary="Login " />*/}
-				{/*		</ListItemButton>*/}
-				{/*	</List>*/}
-				{/*</Collapse>*/}
-				<ListItemButton>
+				<ListItemButton sx={{ marginTop: 4 }}>
 					<LogoutIcon
 						sx={{
 							color: '#fff',

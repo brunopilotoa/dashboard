@@ -1,23 +1,18 @@
 'use client';
-import { AddBoxRounded } from '@mui/icons-material';
 import {
-	Container,
-	FormGroup,
+	Button,
+	Grid,
 	InputLabel,
 	MenuItem,
 	Paper,
 	Select,
 	SelectChangeEvent,
 	TextField,
-	Typography,
-	Grid,
-	Button,
-	styled,
-	Box,
 	ThemeProvider,
+	Typography,
 	createTheme,
+	styled,
 } from '@mui/material';
-import { blue, green } from '@mui/material/colors';
 import { useState } from 'react';
 
 export default function MovimentForm() {
@@ -69,142 +64,114 @@ export default function MovimentForm() {
 					justifyContent={'center'}
 					wrap="nowrap"
 				>
-					<Title
-						variant="h4"
-						color="initial"
-						textTransform={'uppercase'}
-						marginTop={3}
-						marginBottom={4}
-					>
-						Folha de Pista
-					</Title>
-					<Paper elevation={10}>
-						<Box
-							margin={'auto'}
-							paddingTop={4}
-							marginRight={4}
-							marginLeft={4}
-							// marginBottom={4}
-							display={'flex'}
-							flexDirection={'row'}
-							width={'100dvh'}
-						>
-							<InputForm>DATA</InputForm>
-							<TextField type="date" size="small" />
-							<InputForm>Aeronave</InputForm>
-							<TextField
-								type="text"
-								size="small"
-								placeholder="Matricula da Aeronave"
-								inputProps={{ maxLength: 6 }}
-							/>
-						</Box>
-						<Box
-							marginTop={2}
-							marginBottom={4}
-							display={'flex'}
-							flexDirection={'row'}
-							width={'100vh'}
-						>
-							<InputForm>Origem</InputForm>
+					<p className="formTitle">Folha de movimento </p>
+					<Paper elevation={10} sx={{ width: '100vh' }}>
+						<form action="">
+							<div className="flex flex-col  place-items-start">
+								<div className="m-5 mt-8 flex flex-row ">
+									<p className="formInput">DATA</p>
+									<TextField type="date" size="small" />
+									<p className="formInput">Aeronave</p>
+									<TextField
+										type="text"
+										size="small"
+										placeholder="Matricula da Aeronave"
+										inputProps={{ maxLength: 6 }}
+									/>
+								</div>
+								<div className="setFormItems">
+									<p className="formInput">Origem</p>
 
-							<TextField
-								type="text"
-								size="small"
-								inputProps={{ maxLength: 4 }}
-								placeholder="ICAO AD PARTIDA "
-							/>
-							<InputForm>Destino</InputForm>
-							<TextField
-								type="text"
-								size="small"
-								inputProps={{ maxLength: 4 }}
-								placeholder="icao AD destino "
-							/>
-						</Box>
-						<Box display={'flex'} flexDirection={'row'}>
-							<InputForm>Decolagem</InputForm>
-							<TextField
-								type="text"
-								size="small"
-								inputProps={{ maxLength: 4 }}
-								placeholder="Horario Z  "
-							/>
-							<InputForm>Pouso</InputForm>
-							<TextField
-								type="tel"
-								size="small"
-								inputProps={{ maxLength: 4 }}
-								placeholder="Horario Z		"
-							/>
-						</Box>
-						<Box
-							marginTop={2}
-							marginBottom={2}
-							display={'flex'}
-							flexDirection={'row'}
-							width={'100vh'}
-						>
-							<InputForm>Pessoas A Bordo</InputForm>
-							<TextField
-								type="text"
-								size="small"
-								inputProps={{ maxLength: 2 }}
-								placeholder="Total de POB "
-							/>
-							<InputForm
-								id="demo-simple-select-label"
-								size="small"
-								sx={{
-									marginLeft: 3,
-									marginTop: 0,
-									padding: 0,
-									marginBottom: 3,
-								}}
-							>
-								Categoria
-							</InputForm>
-							<Select
-								labelId="demo-simple-select-label"
-								id="demo-simple-select"
-								value={category}
-								// label="Category"
-								onChange={handleChange}
-							>
-								<MenuItem value={10}>Geral</MenuItem>
-								<MenuItem value={20}>Instrucao</MenuItem>
-								<MenuItem value={30}>Forcas Publicas</MenuItem>
-							</Select>
-						</Box>
-						<Box display={'flex'} flexDirection={'row'}>
-							<InputForm>Piloto em Comando</InputForm>
-							<TextField
-								type="text"
-								size="small"
-								// inputProps={{ maxLength: 5 }}
-								placeholder="Nome : "
-							/>
-						</Box>
+									<TextField
+										type="text"
+										size="small"
+										inputProps={{ maxLength: 4 }}
+										placeholder="ICAO AD PARTIDA "
+									/>
+									<p className="formInput">Destino</p>
+									<TextField
+										type="text"
+										size="small"
+										inputProps={{ maxLength: 4 }}
+										placeholder="icao AD destino "
+									/>
+								</div>
+								<div className="setFormItems">
+									<p className="formInput">Decolagem</p>
+									<TextField
+										type="text"
+										size="small"
+										inputProps={{ maxLength: 4 }}
+										placeholder="Horario Z  "
+									/>
+									<p className="formInput">Pouso</p>
+									<TextField
+										type="tel"
+										size="small"
+										inputProps={{ maxLength: 4 }}
+										placeholder="Horario Z		"
+									/>
+								</div>
+								<div className="setFormItems">
+									<p className="formInput">Pessoas A Bordo</p>
+									<TextField
+										type="text"
+										size="small"
+										inputProps={{ maxLength: 2 }}
+										placeholder="Total de POB "
+									/>
+									<p className="formInput">Categoria</p>
+									<Select
+										labelId="demo-simple-select-label"
+										id="demo-simple-select"
+										value={category}
+										// label="Category"
+										onChange={handleChange}
+									>
+										<MenuItem value={10}>Geral</MenuItem>
+										<MenuItem value={20}>
+											Instrucao
+										</MenuItem>
+										<MenuItem value={30}>
+											Forcas Publicas
+										</MenuItem>
+									</Select>
+								</div>
+								<div className="setFormItems">
+									<p className="formInput">
+										Piloto em Comando
+									</p>
+									<TextField
+										type="text"
+										size="small"
+										// inputProps={{ maxLength: 5 }}
+										placeholder="Nome : "
+									/>
+								</div>
 
-						<Box
-							display={'flex'}
-							justifyContent={'center'}
-							marginTop={5}
-							marginBottom={4}
-						>
-							<InputForm>Anac</InputForm>
-							<TextField
-								type="tel"
-								size="small"
-								inputProps={{ maxLength: 6 }}
-								placeholder="Codigo Anac"
-								sx={{ marginRight: 4 }}
-							/>
-							<Button variant="contained">Cadastrar</Button>
-							<Button variant="contained" color="secondary">
-								Cancelar
-							</Button>
-						</Box>
+								<div className="setFormItems mb-5">
+									<p className="formInput">Anac</p>
+									<TextField
+										type="tel"
+										size="small"
+										inputProps={{ maxLength: 6 }}
+										placeholder="Codigo Anac"
+										sx={{ marginRight: 4 }}
+									/>
+								</div>
+								<div className="m-auto flex flex-row ml-48 mt-8 mb-8">
+									<Button variant="contained">
+										Cadastrar
+									</Button>
+									<Button
+										variant="contained"
+										color="secondary"
+									>
+										Cancelar
+									</Button>
+								</div>
+							</div>
+						</form>
 					</Paper>
 				</Grid>
 			</ThemeProvider>

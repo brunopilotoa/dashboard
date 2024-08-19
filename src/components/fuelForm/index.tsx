@@ -1,8 +1,6 @@
 'use client';
 import {
-	Box,
 	Button,
-	Grid,
 	InputLabel,
 	MenuItem,
 	Paper,
@@ -10,7 +8,6 @@ import {
 	SelectChangeEvent,
 	TextField,
 	ThemeProvider,
-	Typography,
 	createTheme,
 	styled,
 } from '@mui/material';
@@ -69,33 +66,18 @@ export default function FuelForm() {
 	return (
 		<>
 			<ThemeProvider theme={theme}>
-				<Grid
-					container
-					direction="column"
-					justifyContent={'center'}
-					wrap="nowrap"
-				>
-					<p
-						className="text-5xl	mb-8"
-						// variant="h4"
-						// color="initial"
-						// textTransform={'uppercase'}
-						// marginBottom={4}
-					>
-						Cadastro de Abastecimento
-					</p>
-					<Paper elevation={10} sx={{ margin: 'auto' }}>
-						{/* <div className="m-5"> */}
-						<form onSubmit={onSubmit} action={'/fuel'} method="post">
-							<Box
-								margin={5}
-								display={'flex'}
-								flexDirection={'row'}
-								width={'100dvh'}
-							>
-								<InputForm>DATA</InputForm>
-								<TextField type="date" size="small" name="data" />
-								<InputForm>Aeronave</InputForm>
+				<p className="formTitle">Cadastro de Abastecimento</p>
+				<Paper elevation={10}>
+					<form action={'/api/submit'} method="post">
+						<div className="flex flex-col  place-items-start">
+							<div className="m-5 mt-8 flex flex-row ">
+								<p className="formInput">DATA</p>
+								<TextField
+									type="date"
+									size="small"
+									name="data"
+								/>
+								<p className="formInput">Aeronave</p>
 								<TextField
 									type="text"
 									size="small"
@@ -103,16 +85,9 @@ export default function FuelForm() {
 									placeholder="Matricula da Aeronave"
 									inputProps={{ maxLength: 6 }}
 								/>
-							</Box>
-							<Box
-								marginTop={2}
-								marginBottom={4}
-								margin={6}
-								display={'flex'}
-								flexDirection={'row'}
-								width={'100vh'}
-							>
-								<InputForm>Litros</InputForm>
+							</div>
+							<div className="m-5 mt-8 flex flex-row">
+								<p className="formInput">Litros</p>
 
 								<TextField
 									type="text"
@@ -121,7 +96,7 @@ export default function FuelForm() {
 									inputProps={{ maxLength: 3 }}
 									placeholder="Quantidade Abastecida "
 								/>
-								<InputForm>Inicial</InputForm>
+								<p className="formInput">Inicial</p>
 								<TextField
 									type="number"
 									size="small"
@@ -129,14 +104,9 @@ export default function FuelForm() {
 									inputProps={{ maxLength: 5 }}
 									placeholder="Hidrometro Inicial "
 								/>
-							</Box>
-							<Box
-								margin={5}
-								display={'flex'}
-								flexDirection={'row'}
-								width={'100vh'}
-							>
-								<InputForm>Final</InputForm>
+							</div>
+							<div className="m-5 mt-8 flex flex-row">
+								<p className="formInput">Final</p>
 								<TextField
 									type="text"
 									size="small"
@@ -144,18 +114,7 @@ export default function FuelForm() {
 									inputProps={{ maxLength: 6 }}
 									placeholder="Hidrometro Final "
 								/>
-								<InputForm
-									id="demo-simple-select-label"
-									size="small"
-									sx={{
-										marginLeft: 3,
-										marginTop: 0,
-										padding: 0,
-										marginBottom: 3,
-									}}
-								>
-									Categoria
-								</InputForm>
+								<p className="formInput">Categoria</p>
 								<Select
 									labelId="demo-simple-select-label"
 									id="demo-simple-select"
@@ -168,14 +127,9 @@ export default function FuelForm() {
 									<MenuItem value={20}>Socios</MenuItem>
 									<MenuItem value={30}>Nao Socios</MenuItem>
 								</Select>
-							</Box>
-							<Box
-								display={'flex'}
-								justifyContent={'center'}
-								// marginTop={5}
-								marginBottom={4}
-							>
-								<InputForm>Responsavel</InputForm>
+							</div>
+							<div className="m-5 mt-8 flex flex-row">
+								<p className="formInput">Responsavel</p>
 								<TextField
 									type="text"
 									size="small"
@@ -184,18 +138,27 @@ export default function FuelForm() {
 									placeholder="Abastecedor "
 									sx={{ marginRight: 5 }}
 								/>
-								<Button variant="contained" type="submit">
-									Cadastrar
-								</Button>
-								<Button variant="contained" color="secondary" type="reset">
+							</div>
+						</div>
+
+						<div className="mt-12 mb-5 ml-52">
+							<Button variant="contained" type="submit">
+								Cadastrar
+							</Button>
+							<a href="/">
+								<Button
+									variant="contained"
+									color="secondary"
+									type="reset"
+								>
 									Cancelar
 								</Button>
-							</Box>
-						</form>
+							</a>
+						</div>
+					</form>
 
-						{/* </div> */}
-					</Paper>
-				</Grid>
+					{/* </div> */}
+				</Paper>
 			</ThemeProvider>
 		</>
 	);

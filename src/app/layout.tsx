@@ -1,7 +1,6 @@
+import Sidebar from '@/components/sidebar';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Sidebar from '@/components/sidebar';
-import { Box, createTheme, Grid, ThemeProvider } from '@mui/material';
 import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,20 +16,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body>
-				<Box
-					sx={{
-						display: 'flex',
-						flexDirection: 'row',
-						margin: 'auto',
-					}}
-				>
+				<div className="flex flex-row m-auto">
 					<Sidebar />
 
-					{/* </Container> */}
-					<Grid item xs={12} sx={{ margin: 'auto', justifySelf: 'center' }}>
-						{children}
-					</Grid>
-				</Box>
+					<div className="flex flex-col justify-center m-auto">{children}</div>
+				</div>
 			</body>
 		</html>
 	);

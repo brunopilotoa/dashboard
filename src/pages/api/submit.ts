@@ -1,4 +1,6 @@
 export default function handler(req, res) {
+
+	if 
 	const { data, aircraft, litros, inicial, final, categoria, responsavel } =
 		req.body;
 
